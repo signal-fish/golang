@@ -1,0 +1,6 @@
+hello signal
+Golang is awesome
+Golang is awesome
+Golang is awesome
+Golang is awesome
+Golang is awesome
