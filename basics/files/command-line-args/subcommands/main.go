@@ -7,18 +7,18 @@ import (
 )
 
 func main() {
-	addcmd := flag.NewFlagSet("add", flag.ExitOnError)
-	aAdd := addcmd.Int("a", 0, "The value of a")
-	bAdd := addcmd.Int("b", 0, "The value of b")
-	err := addcmd.Parse(os.Args[2:])
+	addCmd := flag.NewFlagSet("add", flag.ExitOnError)
+	aAdd := addCmd.Int("a", 0, "The value of a")
+	bAdd := addCmd.Int("b", 0, "The value of b")
+	err := addCmd.Parse(os.Args[2:])
 	if err != nil {
 		fmt.Println("Parse Error:", err)
 	}
 
-	mulcmd := flag.NewFlagSet("mul", flag.ExitOnError)
-	aMul := mulcmd.Int("a", 0, "The value of a")
-	bMul := mulcmd.Int("b", 0, "The value of b")
-	err = mulcmd.Parse(os.Args[2:])
+	mulCmd := flag.NewFlagSet("mul", flag.ExitOnError)
+	aMul := mulCmd.Int("a", 0, "The value of a")
+	bMul := mulCmd.Int("b", 0, "The value of b")
+	err = mulCmd.Parse(os.Args[2:])
 	if err != nil {
 		fmt.Println("Parse Error:", err)
 	}
