@@ -1,0 +1,21 @@
+1. func NotFoundHandler() Handler
+    返回一个handler，它给每个请求的响应都是“404 page not found”
+
+2. func NotFoundHandler() Handler
+返回一个handler，它给每个请求的响应都是“404 page not found”
+
+3. func StripPrefix(prefix string, h handler) Handler
+    返回一个handler，它从请求URL中去掉指定的前缀，然后再调用另一个handler
+    如果请求的URL与提供的前缀不符，则返回404
+
+4. func TimeoutHandler(h Handler, ft time.Duration, msg string) Handler
+    返回一个handler，它用来在指定时间内运行传入的h，可看作是装饰器。
+
+5. func　FileServer(root FileSystem) Handler
+    返回一个handler，使用基于root的文件系统来响应请求
+    type FileSystem interface {
+    Open(name string) (File error)
+}
+    使用时需要用到操作系统的文件系统，所以还需要委托给：
+    type Dir string
+    func (d Dir) Open(name string) (File, error)
