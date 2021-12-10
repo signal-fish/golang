@@ -9,14 +9,17 @@ import (
 func main() {
 	var count = 0
 	ch := make(chan bool, 1)
+	// ch:= make(chan struct{}, 1)
 	var wg sync.WaitGroup
 	wg.Add(10)
 
 	start := time.Now()
 	for i := 0; i < 10; i++ {
 		go func() {
+			// var s struct{}
 			defer wg.Done()
 			for j := 0; j < 100000; j++ {
+				// ch <- s
 				ch <- true
 				count++
 				<-ch
